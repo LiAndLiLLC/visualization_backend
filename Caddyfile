@@ -1,0 +1,3 @@
+http://backend.hanming.li {
+    reverse_proxy http://localhost:22253
+}
