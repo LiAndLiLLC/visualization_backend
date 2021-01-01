@@ -6,8 +6,8 @@ services:
     image: python
     restart: always
     ports:
-      - 127.0.0.1:22253:5000/tcp
+      - 22253:5000/tcp
     volumes:
       - .:/code
-    command: ["bash", "-c", "cd code && pip install flask gunicorn eventlet && pip install -r requirements.txt && gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 main:app"]
+    command: ["bash", "-c", "cd code && pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && pip install flask gunicorn eventlet && pip install -r requirements.txt && gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 main:app"]
     network_mode: "bridge"
